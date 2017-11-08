@@ -24,10 +24,10 @@ app.use((req, res)=>{
     res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-})
+});
 
 
 
 app.listen(PORT, ()=>{
-    console.log(`App is listening on port ${PORT}`)
-})
+    console.log(`App is listening on port ${PORT}`);
+});

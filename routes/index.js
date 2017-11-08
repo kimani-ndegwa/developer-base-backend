@@ -31,6 +31,4 @@ Router.delete('/developer/:_id/skill/:_skillId', SkillActions.deleteSingleSkill)
 
 
 
-
-
-module.exports = Router;
+module.exports = Router

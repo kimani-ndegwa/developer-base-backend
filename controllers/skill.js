@@ -23,12 +23,8 @@ const SkillActions = {
 
 
     getSingleSkill : (req, res) =>{
-        console.log('Gets here >>>>>>>.1')
-        let developerId = req.params._id;
         let skillId = req.params._skillId;
-        console.log('We got here>>>>>>>>>>>>')
-        Skill.find({_id: skillId, developer: developerId }).then(skill=>{
-            console.log('>>>>>>>>>>>>>', skill)
+        Skill.find({_id:skillId}).then(skill=>{
             res.send(skill)
         }).catch(e=>{
             console.log(e);
@@ -36,10 +32,9 @@ const SkillActions = {
     },
 
     updateSingleSkill: (req,res) => {
-        let developerId = req.params._id;
         let skillId = req.params._skillId;
 
-        Skill.findOneAndUpdate({_id: skillId, developer: developerId, new: true}).then(skill=>{
+        Skill.findOneAndUpdate(skillId, req.body, {new: true}).then(skill=>{
             res.send(skill);
         }).catch(e=>{
             console.log(e);
@@ -47,10 +42,9 @@ const SkillActions = {
     },
 
     deleteSingleSkill: (req, res)=>{
-        let developerId = req.params._id;
         let skillId = req.params._skillId;
 
-        Skill.findOneAndRemove({_id: skillId, developer: developerId}).then(()=>{
+        Skill.findOneAndRemove({_id: skillId}).then(()=>{
             res.status(204).send({message: 'Skill Deleted'})
         }).catch(e=>{
             console.log(e);
