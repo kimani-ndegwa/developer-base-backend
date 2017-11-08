@@ -1,0 +1,23 @@
+{
+  "name": "developer-base-backend",
+  "version": "1.0.0",
+  "description": "API for the developers and their skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimani-ndegwa/developer-base-backend.git"
+  },
+  "author": "Kimani Ndegwa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimani-ndegwa/developer-base-backend/issues"
+  },
+  "homepage": "https://github.com/kimani-ndegwa/developer-base-backend#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}
