@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -40,5 +40,5 @@ app.use((err, req, res, next)=> {
 
 
 app.listen(PORT, ()=>{
-    console.log(`App is listening on port ${PORT}`);
+    console.log(`App is listening on port` + PORT);
 });
