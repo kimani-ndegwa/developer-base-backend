@@ -7,8 +7,11 @@ const cors = require('cors');
 
 const Router = require('./routes');
 
+const MLAB_USER=process.env.TEST_USER_NAME;
+const MLAB_PASSWORD=process.env.TEST_USER_PASSWORD;
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/developers');
+mongoose.connect('mongodb://' + MLAB_USER  + ':' + MLAB_PASSWORD + '@ds151955.mlab.com:51955/dev-base-backend');
 
 const db = mongoose.connection;
 
