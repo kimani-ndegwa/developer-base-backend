@@ -19,6 +19,9 @@ app.use(cors());
 app.use(Router);
 // ref : https://stackoverflow.com/questions/45503253/import-data-from-file-json-with-mongoose
 
+app.get('/', (req, res, next)=>{
+    res.send('Welcome to dev base.')
+})
 app.use((req, res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
