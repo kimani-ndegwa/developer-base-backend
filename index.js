@@ -26,6 +26,11 @@ app.use((req, res)=>{
 
 });
 
+// For better error handling on the application.
+app.use((err, req, res, next)=> {
+    res.status(422).send({error : "An Error Occurred"})
+});
+
 
 
 app.listen(PORT, ()=>{

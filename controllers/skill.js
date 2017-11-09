@@ -1,55 +1,44 @@
 const Skill = require('../models/skill');
 
 const SkillActions = {
-    getAllSkills : (req, res)=>{
+    getAllSkills : (req, res, next)=>{
         let developerId = req.params._id;
         Skill.find({developer: developerId}).then(skills=>{
             res.send(skills);
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next)
     },
 
-    createSingleSkill : (req, res)=>{
+    createSingleSkill : (req, res, next)=>{
         let developerId = req.params._id;
         // We dont have to pass the actual developer this skill belongs to
         req.body.developer = developerId;
         Skill.create(req.body).then(skill=>{
             res.send(skill);
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next);
     },
 
 
-    getSingleSkill : (req, res) =>{
+    getSingleSkill : (req, res, next) =>{
         let skillId = req.params._skillId;
-        console.log(skillId)
         Skill.find({_id:skillId}).then(skill=>{
             res.send(skill)
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next);
     },
 
-    updateSingleSkill: (req,res) => {
+    updateSingleSkill: (req,res, next) => {
         let skillId = req.params._skillId;
         
         Skill.findOneAndUpdate({_id:skillId}, req.body, {new: true}).then(skill=>{
             res.send(skill);
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next);
     },
 
-    deleteSingleSkill: (req, res)=>{
+    deleteSingleSkill: (req, res, next)=>{
         let skillId = req.params._skillId;
 
         Skill.findOneAndRemove({_id: skillId}).then((message)=>{
             res.send(message);
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next);
     }
 
 }

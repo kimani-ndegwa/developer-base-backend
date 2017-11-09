@@ -2,52 +2,42 @@ const Developer = require('../models/developer');
 
 
 const DeveloperActions = {
-    getDevelopers : (req, res) => {
+    getDevelopers : (req, res, next) => {
         Developer.find().then(developers=>{
             res.send(developers);
-        }).catch(err=>{
-            res.send(err);
-        })
+        }).catch(next);
         
     },
 
-    createDeveloper: (req, res) => {
+    createDeveloper: (req, res, next) => {
         Developer.create(req.body).then(developer=>{
             res.send(developer);
-        }).catch(err=>{
-            console.log(err)
-        })
+        }).catch(next);
     },
 
-    getSingleDeveloper: (req, res)=>{
-        let developerId = req.params._id; // Define this in routes;
+    getSingleDeveloper: (req, res, next)=>{
+        let developerId = req.params._id;
 
         Developer.findById({_id: developerId}).then(developer=>{
             res.send(developer)
-        }).catch(err=>{
-            console.log(e)
-        })
+        }).catch(next);
     },
     
-    updateSingleDeveloper:(req, res)=>{
+    updateSingleDeveloper:(req, res, next)=>{
         let developerId =req.params._id;
 
         Developer.findByIdAndUpdate(developerId, req.body, {new: true})
             .then(developer=>{
                 res.send(developer);
             })
-            .catch(e=>{
-                console.log(e);
-            })
+            .catch(next);
     },
-    deleteSingleDeveloper: (req, res)=>{
+    deleteSingleDeveloper: (req, res, next)=>{
         let developerId = req.params._id;
 
         Developer.findByIdAndRemove(developerId).then((message)=>{
             res.send(message)
-        }).catch(e=>{
-            console.log(e);
-        })
+        }).catch(next);
     }
 
 
