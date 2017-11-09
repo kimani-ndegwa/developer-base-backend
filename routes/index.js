@@ -13,7 +13,7 @@ const Router = express.Router();
 Router.get('/developers', DeveloperActions.getDevelopers);
 Router.get('/developer/:_id', DeveloperActions.getSingleDeveloper);
 Router.put('/developer/:_id', DeveloperActions.updateSingleDeveloper);
-Router.delete('/developer/:_id', DeveloperActions.deleteSingleEmployee);
+Router.delete('/developer/:_id', DeveloperActions.deleteSingleDeveloper);
 Router.post('/developers', DeveloperActions.createDeveloper);
 
 // Initial Routes for the skills.
