@@ -40,11 +40,11 @@ const DeveloperActions = {
                 console.log(e);
             })
     },
-    deleteSingleEmployee: (req, res)=>{
+    deleteSingleDeveloper: (req, res)=>{
         let developerId = req.params._id;
 
-        Developer.findByIdAndRemove(developerId).then(()=>{
-            res.status(204).send('Delete Successful')
+        Developer.findByIdAndRemove(developerId).then((message)=>{
+            res.send(message)
         }).catch(e=>{
             console.log(e);
         })
